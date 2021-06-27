@@ -20,10 +20,15 @@ function HomePage() {
   else
     return (
       <>
-        <Form />
-        {data.map((food) => (
-          <FoodCard key={food._id} food={food} />
-        ))}
+        <h1>Chef Loic Inventory</h1>
+        <div>
+          <Form />
+        </div>
+        <div>
+          {data.map((food) => (
+            <FoodCard key={food._id} food={food} />
+          ))}
+        </div>
       </>
     );
 }

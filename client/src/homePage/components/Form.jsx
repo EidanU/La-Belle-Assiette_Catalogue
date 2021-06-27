@@ -17,14 +17,25 @@ export default function AddForm() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <input {...register("name", { required: true })} placeholder="food" />
-      {errors.name && <span>This field is required</span>}
-      <input
-        type="number"
-        {...register("quantity", { required: true })}
-        placeholder="quantity"
-      />
-      {errors.quantity && <span>This field is required</span>}
+      <div className="form-group">
+        <label>Name</label>
+        <input
+          className="form-control"
+          {...register("name", { required: true })}
+          placeholder="food"
+        />
+        {errors.name && <small>This field is required</small>}
+      </div>
+      <div className="form-group">
+        <label>Quantity</label>
+        <input
+          className="form-control"
+          type="number"
+          {...register("quantity", { required: true })}
+          placeholder="quantity"
+        />
+        {errors.quantity && <small>This field is required</small>}
+      </div>
       <input type="submit" value="submit" />
     </form>
   );

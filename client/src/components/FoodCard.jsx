@@ -1,11 +1,13 @@
+import { deleteData, modifyData } from "../services/services";
+
+// This file is just the card where food information will be display,
 const FoodCard = ({ food }) => {
-  console.log(food._id);
   return (
     <div>
       <p>{food.name}</p>
       <p>{food.quantity}</p>
-      <button>modifier</button>
-      <button>delete</button>
+      <button onClick={() => modifyData(food._id)}>modifier</button>
+      <button onClick={() => deleteData(food._id)}>delete</button>
     </div>
   );
 };

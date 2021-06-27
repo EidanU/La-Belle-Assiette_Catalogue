@@ -4,13 +4,14 @@ const express = require('express');
 const cors = require('cors')
 const Food = require('./models/food');
 const bodyParser = require('body-parser');
-
+const port = 3001;
 const app = express();
+
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-
-const port = 3001;
+app.use(bodyParser.text());
 app.use(cors());
+
 
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => app.listen(port))
@@ -32,6 +33,14 @@ app.all('/api/', (req, res) => {
             }).catch((err) => {
                 console.log(err.message);
             })
+    }
+    else if (req.method === 'PUT') {
+
+    }
+    else if (req.method === 'DELETE') {
+        Food.deleteOne({ _id: req.body })
+            .then(() => console.log('yaaaaa'))
+            .catch(() => console.log('pas ya'))
     }
     else {
         res.send('ayayaya ca n\'a pas marché')

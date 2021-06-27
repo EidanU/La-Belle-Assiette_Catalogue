@@ -11,25 +11,19 @@ export default function App() {
   } = useForm();
 
   const onSubmit = (data) => {
-    postData({ name: "tomates", quantity: "13" }).then((res) => {
-      console.log(res);
-    });
+    postData(data).then((res) => {});
   };
-
-  //   useEffect(() => {
-  //     getData().then((res) => {
-  //       console.log(res);
-  //     });
-  //   }, []);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <input defaultValue="test" {...register("example")} />
-
-      <input {...register("exampleRequired", { required: true })} />
-
-      {errors.exampleRequired && <span>This field is required</span>}
-
+      <input {...register("name", { required: true })} placeholder="food" />
+      {errors.name && <span>This field is required</span>}
+      <input
+        type="number"
+        {...register("quantity", { required: true })}
+        placeholder="quantity"
+      />
+      {errors.quantity && <span>This field is required</span>}
       <input type="submit" />
     </form>
   );

@@ -3,33 +3,34 @@ const mongoose = require('mongoose');
 const express = require('express');
 const cors = require('cors')
 const Food = require('./models/food');
+const bodyParser = require('body-parser');
 
 const app = express();
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
 const port = 3001;
 app.use(cors());
 
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
-    .then(result => app.listen(port))
+    .then(() => app.listen(port))
     .catch((error) => console.log(error));
 
 
 app.all('/api/', (req, res) => {
+
     if (req.method === 'GET') {
         Food.find()
             .then((result) => { res.send(result) }).
             catch((error) => { res.send(error) });
     }
     else if (req.method === 'POST') {
-        console.log('post')
-        const food = new Food({
-            name: 'carottes',
-            quantity: 17
-        });
+        const food = new Food(req.body);
         food.save()
             .then((result) => {
                 res.send(result);
             }).catch((err) => {
-                console.log(err);
+                console.log(err.message);
             })
     }
     else {

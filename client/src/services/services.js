@@ -4,6 +4,7 @@ export const getData = () => {
     return axios.get('/api');
 }
 export const postData = (data) => {
+    console.log(data);
     return axios.post('/api', data)
 }
 // export const deleteData = () => {

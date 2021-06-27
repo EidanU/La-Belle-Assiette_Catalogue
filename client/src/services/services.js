@@ -6,9 +6,8 @@ export const getData = () => {
 export const postData = (data) => {
     return axios.post('/api', data);
 }
-export const modifyData = (id) => {
-    console.log(id);
-    return axios.put('/api', { data: id });
+export const modifyData = (data) => {
+    return axios.put('/api', data);
 }
 //here the second args of delete() needs to be a object with the object data inside
 export const deleteData = (id) => {

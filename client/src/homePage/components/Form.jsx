@@ -1,9 +1,9 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { useEffect } from "react";
-import { getData, postData } from "../services/services";
+import { getData, postData } from "../../services/services";
 
-export default function App() {
+export default function AddForm() {
   const {
     register,
     handleSubmit,
@@ -12,6 +12,7 @@ export default function App() {
 
   const onSubmit = (data) => {
     postData(data).then((res) => {});
+    window.location.reload();
   };
 
   return (
@@ -24,7 +25,7 @@ export default function App() {
         placeholder="quantity"
       />
       {errors.quantity && <span>This field is required</span>}
-      <input type="submit" />
+      <input type="submit" value="submit" />
     </form>
   );
 }

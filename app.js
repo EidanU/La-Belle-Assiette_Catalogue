@@ -35,6 +35,11 @@ app.all('/api/', (req, res) => {
             })
     }
     else if (req.method === 'PUT') {
+        console.log(req.body)
+        Food.findByIdAndUpdate({ _id: req.body.id }, req.body.update)
+            .then(() => console.log('yaaaaa'))
+            .catch(() => console.log('pas ya'))
+
 
     }
     else if (req.method === 'DELETE') {
@@ -47,21 +52,3 @@ app.all('/api/', (req, res) => {
     }
 });
 
-    // app.get('/api/add-food', (req, res) => {
-    //     const food = new Food({
-    //         name: 'carottes',
-    //         quantity: 17
-    //     });
-    //     food.save()
-    //         .then((result) => {
-    //             res.send(result)
-    //         }).catch((err) => {
-    //             console.log(err)
-    //         })
-    // });
-
-// app.get('/single-food', (req, res) => {
-//     Food.findById('60d86c597c1ea442f8358edf')
-//         .then((result) => { res.send(result) }).
-//         catch((error) => { res.send(error) });
-// });

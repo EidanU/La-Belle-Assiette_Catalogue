@@ -1,7 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { useEffect } from "react";
-import { getData } from "../services/services";
+import { getData, postData } from "../services/services";
 
 export default function App() {
   const {
@@ -9,13 +9,18 @@ export default function App() {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => console.log(data);
 
-  useEffect(() => {
-    getData().then((res) => {
+  const onSubmit = (data) => {
+    postData({ name: "tomates", quantity: "13" }).then((res) => {
       console.log(res);
     });
-  }, []);
+  };
+
+  //   useEffect(() => {
+  //     getData().then((res) => {
+  //       console.log(res);
+  //     });
+  //   }, []);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>

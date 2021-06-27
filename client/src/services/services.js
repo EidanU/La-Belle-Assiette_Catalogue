@@ -1,11 +1,11 @@
 import axios from 'axios'
 
 export const getData = () => {
-    return axios.get('http://localhost:3001/all-food/');
+    return axios.get('/api');
 }
-// export const postData = () => {
-//     return axios.get('http://localhost:3001/data')
-// }
+export const postData = (data) => {
+    return axios.post('/api', data)
+}
 // export const deleteData = () => {
 //     return axios.get('http://localhost:3001/data')
 // }

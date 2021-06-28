@@ -12,10 +12,11 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "client": "cd client && npm start",
     "server": "nodemon index",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
+    "init": "npm i && cd client && npm i",
+    "all": "concurrently \"npm run server\" \"npm run client\""
   },
   "repository": {
     "type": "git",

@@ -1,31 +1,48 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { useEffect } from "react";
-import { getData, postData } from "../../services/services";
+import { postData } from "../../services/services";
 
 export default function AddForm() {
+  // Here are useForm functions that will be used inside our form
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
+  //When we submit the form, a post Request is done and I reload the page to display new data
   const onSubmit = (data) => {
-    postData(data).then((res) => {});
-    window.location.reload();
+    postData(data)
+      .then(() => {
+        window.location.reload();
+      })
+      .catch((err) => {
+        console.error(err);
+      });
   };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <input {...register("name", { required: true })} placeholder="food" />
-      {errors.name && <span>This field is required</span>}
-      <input
-        type="number"
-        {...register("quantity", { required: true })}
-        placeholder="quantity"
-      />
-      {errors.quantity && <span>This field is required</span>}
-      <input type="submit" value="submit" />
+      <div className="form-group ">
+        <label className="col-form-label">Ingredient</label>
+        <input
+          className="form-control"
+          {...register("name", { required: true })}
+          placeholder="Tomatoes"
+        />
+        {errors.name && <small>This field is required</small>}
+      </div>
+      <div className="form-group">
+        <label>Quantity</label>
+        <input
+          className="form-control"
+          type="number"
+          {...register("quantity", { required: true })}
+          placeholder="10"
+        />
+        {errors.quantity && <small>This field is required</small>}
+      </div>
+      <input type="submit" value="submit" className="btn btn-primary mt-2" />
     </form>
   );
 }

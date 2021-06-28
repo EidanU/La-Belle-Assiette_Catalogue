@@ -1,4 +1,4 @@
-# Chef Loic App
+# Chef Loïc App
 
 In this app you will be able to handle the chef Loic food inventory.
 You can watch, add, modify and delete all the data from this single page.
@@ -14,7 +14,7 @@ I read that it was not required to make web design but I add some boostrap class
   - Express
   - Mongoose
 
-## Operation
+## Operations
 
 To install modules in the api and in the client you need to run this script :
 

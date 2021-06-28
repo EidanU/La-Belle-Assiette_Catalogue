@@ -29,15 +29,15 @@ function HomePage() {
         {/**Content of the page*/}
         <h1 className="text-center text-light mt-3">
           <GiCook />
-          Chef Loic Inventory
+          Chef Loïc Inventory
           <GiCook />
         </h1>
         <hr className="text-light" />
         <div className="text-center">
           <div className="d-flex justify-content-center">
-            <h2 className="text-light m-2">Ingredient</h2>
+            <h2 className="text-light m-2">Ingredients</h2>
             <button
-              class="btn btn-primary m-2"
+              className="btn btn-primary m-2"
               data-bs-toggle="offcanvas"
               href="#offcanvasExample"
               role="button"

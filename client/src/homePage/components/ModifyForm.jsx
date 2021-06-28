@@ -45,11 +45,16 @@ export default function ModifyForm({ food }) {
         <input
           className="form-control"
           type="number"
-          {...register("quantity", { required: true })}
+          {...register("quantity", { required: true, min: 1 })}
           value={quantity}
           onChange={(e) => handleQuantity(e)}
         />
-        {errors.quantity && <small>This field is required</small>}
+        {errors.quantity && errors.quantity.type === "required" && (
+          <small>This field is required</small>
+        )}
+        {errors.quantity && errors.quantity.type === "min" && (
+          <small>Cannot only be positive </small>
+        )}
       </div>
       <input type="submit" value="Validate" className="btn btn-primary mt-2" />
     </form>

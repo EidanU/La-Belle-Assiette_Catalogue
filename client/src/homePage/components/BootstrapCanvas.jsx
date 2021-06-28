@@ -2,23 +2,23 @@ import Form from "./Form";
 const BoostrapCanva = () => {
   return (
     <div
-      class="offcanvas offcanvas-start"
-      tabindex="-1"
+      className="offcanvas offcanvas-start"
+      tabIndex="-1"
       id="offcanvasExample"
       aria-labelledby="offcanvasExampleLabel"
     >
-      <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasExampleLabel">
+      <div className="offcanvas-header">
+        <h5 className="offcanvas-title" id="offcanvasExampleLabel">
           New Ingredient
         </h5>
         <button
           type="button"
-          class="btn-close text-reset"
+          className="btn-close text-reset"
           data-bs-dismiss="offcanvas"
           aria-label="Close"
         ></button>
       </div>
-      <div class="offcanvas-body">
+      <div className="offcanvas-body">
         <Form />
       </div>
     </div>

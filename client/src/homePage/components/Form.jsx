@@ -37,10 +37,15 @@ export default function AddForm() {
         <input
           className="form-control"
           type="number"
-          {...register("quantity", { required: true })}
+          {...register("quantity", { required: true, min: 1 })}
           placeholder="10"
         />
-        {errors.quantity && <small>This field is required</small>}
+        {errors.quantity && errors.quantity.type === "required" && (
+          <small>This field is required</small>
+        )}
+        {errors.quantity && errors.quantity.type === "min" && (
+          <small>Cannot only be positive </small>
+        )}
       </div>
       <input type="submit" value="submit" className="btn btn-primary mt-2" />
     </form>

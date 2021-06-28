@@ -1,8 +1,8 @@
-import HomePage from "./homePage/HomePage";
-import './App.css'
+import HomePage from "./homepage/HomePage";
+
 function App() {
   return (
-    <div className='container' style={{ background: "green" }}>
+    <div className='container'>
       <HomePage />
     </div>
   );

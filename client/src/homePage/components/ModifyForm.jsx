@@ -1,17 +1,19 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
-import { modifyData, postData } from "../../services/services";
+import { modifyData } from "../../services/services";
 
 export default function ModifyForm({ food }) {
   const [name, setName] = useState(food.name);
   const [quantity, setQuantity] = useState(food.quantity);
+  // Here are useForm functions that will be used inside our form
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
+  //To change the value of the state name I need to use function to pass the current value that I m writing to the state to et a new value of the state
   const handleQuantity = (e) => {
     console.log(e.target.value);
     setQuantity(e.target.value);
@@ -20,6 +22,7 @@ export default function ModifyForm({ food }) {
     setName(e.target.value);
   };
 
+  //When we submit the form, a put Request is done and I reload the page to display data changes
   const onSubmit = () => {
     modifyData({ id: food._id, update: { name: name, quantity: quantity } });
     window.location.reload();
@@ -28,7 +31,7 @@ export default function ModifyForm({ food }) {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className="form-group">
-        <label>Name</label>
+        <label className="col-form-label text-left">Name</label>
         <input
           className="form-control"
           {...register("name", { required: true })}
@@ -38,7 +41,7 @@ export default function ModifyForm({ food }) {
         {errors.name && <small>This field is required</small>}
       </div>
       <div className="form-group">
-        <label>Quantity</label>
+        <label className="col-form-label">Quantity</label>
         <input
           className="form-control"
           type="number"
@@ -48,7 +51,7 @@ export default function ModifyForm({ food }) {
         />
         {errors.quantity && <small>This field is required</small>}
       </div>
-      <input type="submit" value="Validate" />
+      <input type="submit" value="Validate" className="btn btn-primary mt-2" />
     </form>
   );
 }

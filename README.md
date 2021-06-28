@@ -17,11 +17,11 @@ You can watch, add modify and delete all the data from this single page
 
 to install modules in the api and in the client you need to run this script :
 
-- npm run all
+- npm run init
 
 After that to launch the App you need to run this script (it will run server for client and api) :
 
-- npm run dev
+- npm run all
 
 After that juste go on this url :
 

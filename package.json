@@ -15,8 +15,8 @@
     "test": "jest",
     "client": "cd client && npm start",
     "server": "nodemon index",
-    "all": "npm i && cd client && npm i",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
+    "init": "npm i && cd client && npm i",
+    "all": "concurrently \"npm run server\" \"npm run client\""
   },
   "repository": {
     "type": "git",

@@ -27,3 +27,5 @@ After that, to launch the App you need to run this script (it will run server fo
 To finish, just go on this url and enjoy! :
 
 - http://localhost:3000/
+
+

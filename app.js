@@ -1,5 +1,5 @@
-// This is the URI to the connect the app to mongo database
-const dbURI = 'mongodb+srv://root:Password123@nodemongo.uxrh4.mongodb.net/Cook_inventory?retryWrites=true&w=majority';
+// This is the URI to connect the app to mongo database
+const dbURI = '';
 const mongoose = require('mongoose');
 const express = require('express');
 const cors = require('cors')

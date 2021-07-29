@@ -16,6 +16,8 @@ I read that it was not required to make web design but I add some boostrap class
 
 ## Operations
 
+First you will need to connect the project to mongoBD. Create your own database and add the link to connect it at the top of the file "app.js" in the project root.
+
 To install modules in the api and in the client you need to run this script :
 
 - npm run init

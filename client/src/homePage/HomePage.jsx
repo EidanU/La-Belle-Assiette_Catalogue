@@ -40,7 +40,6 @@ function HomePage() {
               className="btn btn-primary m-2"
               data-bs-toggle="offcanvas"
               href="#offcanvasExample"
-              role="button"
               aria-controls="offcanvasExample"
             >
               <BsPlusCircle />

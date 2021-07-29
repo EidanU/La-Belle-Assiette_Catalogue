@@ -22,10 +22,8 @@ To install modules in the api and in the client you need to run this script :
 
 After that, to launch the App you need to run this script (it will run server for client and api) :
 
-- npm run all
+- npm run start
 
 To finish, just go on this url and enjoy! :
 
 - http://localhost:3000/
-
-

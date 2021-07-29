@@ -5,12 +5,12 @@ export const getData = () => {
     return axios.get('/api');
 }
 export const postData = (data) => {
-    return axios.post('/api', data);
+    return axios.post('/api/post', data);
 }
 export const modifyData = (data) => {
-    return axios.put('/api', data);
+    return axios.put('/api/put', data);
 }
 export const deleteData = (id) => {
-    return axios.delete('/api', { data: id });
+    return axios.delete('/api/delete', { data: id });
 }
 

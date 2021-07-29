@@ -18,38 +18,33 @@ app.use(cors());
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => app.listen(port))
     .catch((error) => console.log(error));
+// findByIdAndUpdate is depreciate if we don't put useFindAndModify to false
+mongoose.set('useFindAndModify', false);
 
-// Here I use the express method .all() witch on i can make many request on a same endpoint
-app.all('/api/', (req, res) => {
-    if (req.method === 'GET') {
-        Food.find()
-            .then((result) => { res.send(result) }).
-            catch((error) => { res.send(error) });
-    }
-    else if (req.method === 'POST') {
-        //Here I need to create a new instance of the model, to add new data to my collection in my database
-        const food = new Food(req.body);
-        food.save()
-            .then((result) => {
-                res.send(result);
-            }).catch((err) => {
-                console.log(err.message);
-            })
-    }
-    else if (req.method === 'PUT') {
-        //Here I use a mongoose method 'findByIdAndUpdate()' to map my collection and find one item that match with the id in the requests
-        Food.findByIdAndUpdate({ _id: req.body.id }, req.body.update)
-            .then((res) => console.log('result : ', res))
-            .catch((err) => console.log('error  :', err.message));
-    }
-    else if (req.method === 'DELETE') {
-        //Here I use a mongoose method  'deleteOne()' to map my collection and delete one item that match request body
-        Food.deleteOne({ _id: req.body })
-            .then((res) => console.log('result : ', res))
-            .catch((err) => console.log('error : ', err.message));
-    }
-    else {
-        res.send('It didn\'t work');
-    }
+app.get('/api', (req, res) => {
+    Food.find()
+        .then((result) => { res.send(result) })
+        .catch((error) => { res.send(error) });
 });
+
+app.post('/api/post', (req, res) => {
+    const food = new Food(req.body);
+    food.save()
+        .then((result) => { res.send(result) })
+        .catch((error) => { res.send(error) });
+});
+
+app.put('/api/put', (req, res) => {
+    Food.findByIdAndUpdate({ _id: req.body.id }, req.body.update)
+        .then((result) => { res.send(result) })
+        .catch((error) => { res.send(error) });
+});
+
+app.delete('/api/delete', (req, res) => {
+    Food.deleteOne({ _id: req.body })
+        .then((result) => { res.send(result) })
+        .catch((error) => { res.send(error) });
+});
+
+
 

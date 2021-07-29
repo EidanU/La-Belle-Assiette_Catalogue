@@ -38,7 +38,7 @@ export default function AddForm() {
           className="form-control"
           type="number"
           {...register("quantity", { required: true, min: 1 })}
-          placeholder="10"
+          placeholder="1"
         />
         {errors.quantity && errors.quantity.type === "required" && (
           <small>This field is required</small>
